@@ -1,13 +1,26 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package Model;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
+
+/**
+ *
+ * @author Ramom Karllos
+ */
 public class Venda {
-
-	private int id;
-    private ArrayList<Produto> produto = new ArrayList<Produto>();
+    
+    private int id;
+    private ArrayList<Produto> produto = new ArrayList();
     private float valor;
     private int quantidade;
     private Date data;
@@ -70,5 +83,7 @@ public class Venda {
    public String toString(){
        return ""+produto.toString()+" Valor:"+getValor()+" Quantidade:"+getQuantidade()+" ";
    }
-	
+    
+    
+    
 }

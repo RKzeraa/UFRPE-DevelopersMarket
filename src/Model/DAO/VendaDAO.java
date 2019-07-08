@@ -1,14 +1,25 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package Model.DAO;
 
+import Model.DAO.interfaces.iVendaDAO;
 import Model.Venda;
 import java.util.ArrayList;
 
-public class VendaDAO {
-
-	/**
+/**
+ *
+ * @author Juan Nunes
+ */
+public class VendaDAO implements iVendaDAO{
+    
+    /**
      * Insere um venda dentro do banco de dados
      * @param venda exige que seja passado um objeto do tipo venda
      */
+    @Override
     public void insert(Venda venda){
           
         if(venda.getId() == 0){
@@ -24,6 +35,7 @@ public class VendaDAO {
      * @param venda
      * @return 
      */
+    @Override
     public boolean update(Venda venda){
         
         for (int i = 0; i < Banco.venda.size(); i++) {
@@ -41,6 +53,7 @@ public class VendaDAO {
      * @param venda
      * @return 
      */
+    @Override
     public boolean delete(Venda venda){
         for (Venda vendaLista : Banco.venda) {
             if(idSaoIguais(vendaLista,venda)){
@@ -55,6 +68,7 @@ public class VendaDAO {
      * Retorna um arraylist com todos os vendas do banco de dados
      * @return uma lista com todos os registros do banco
      */
+    @Override
     public ArrayList<Venda> selectAll(){
         return Banco.venda;
     }
@@ -65,11 +79,13 @@ public class VendaDAO {
      * @param vendaAComparar
      * @return verdadeiro caso os id forem iguais e falso se nao forem
      */
-    private boolean idSaoIguais(Venda venda, Venda vendaAComparar) {
+    @Override
+    public boolean idSaoIguais(Venda venda, Venda vendaAComparar) {
         return venda.getId() ==  vendaAComparar.getId();
     }
     
-    private int proximoId(){
+    @Override
+    public int proximoId(){
         
         int maiorId = 0;
         
@@ -84,5 +100,5 @@ public class VendaDAO {
         
         return maiorId + 1;
     }
-	
+
 }

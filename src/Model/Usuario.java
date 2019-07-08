@@ -1,16 +1,34 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package Model;
 
-public class Usuario extends Pessoa{
 
-	private String senha;
+
+/**
+ *
+ * @author Ramom Karllos
+ */
+public class Usuario extends Pessoa {
+    
+    private String senha;
     private String nivelAcesso;
 
-    public Usuario(String cpf, String nome, String senha) {
-        super(cpf, nome);
+    
+    
+    public Usuario(String nome, String senha) {
+        super(nome);
+        this.senha = senha;
+    }
+    
+    public Usuario(String cpf, String nome, String telefone, String email, String rg, String senha) {
+        super(cpf, nome, telefone, email, rg);
         this.senha = senha;
     }
 
-    public Usuario(String cpf, String nome, char sexo, String dataNascimento, String telefone, String email, String rg, String senha, String nivelAcesso) {
+    public Usuario(String cpf, String nome, String sexo, String dataNascimento, String telefone, String email, String rg, String senha, String nivelAcesso) {
         super(cpf, nome, sexo, dataNascimento, telefone, email, rg);
         this.senha = senha;
         this.nivelAcesso = nivelAcesso;
@@ -31,5 +49,7 @@ public class Usuario extends Pessoa{
     public void setNivelAcesso(String nivelAcesso) {
         this.nivelAcesso = nivelAcesso;
     }
-	
+    
+    
+    
 }
